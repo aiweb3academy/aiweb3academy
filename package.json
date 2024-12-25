@@ -1,37 +1,60 @@
 {
-  "name": "nextra-docs-template",
+  "name": "aiweb3academy",
   "version": "0.0.1",
-  "description": "Nextra docs template",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "pages:build": "next-on-pages",
-    "preview": "wrangler pages dev",
-    "deploy": "wrangler pages deploy"
-  },
+  "description": "AI + Web3 Academy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/aiweb3academy/aiweb3academy.git"
   },
-  "author": "Shu Ding <g@shud.in>",
-  "license": "MIT",
+  "homepage": "https://github.com/aiweb3academy/aiweb3academy#readme",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/aiweb3academy/aiweb3academy/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "license": "MIT",
+  "packageManager": "pnpm@9.14.2",
+  "scripts": {
+    "build": "next build && next-image-export-optimizer --nextConfigPath ./next.config.mjs",
+    "deploy": "wrangler pages deploy",
+    "dev": "next dev",
+    "format": "pnpm format:check --write",
+    "format:check": "prettier --cache --check .",
+    "lint": "eslint --ignore-path .gitignore .",
+    "pages:build": "next-on-pages",
+    "preview": "wrangler pages dev --ip 0.0.0.0",
+    "start": "next start"
+  },
   "dependencies": {
-    "next": "^13.0.6",
-    "nextra": "latest",
-    "nextra-theme-docs": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@next/third-parties": "^15.1.2",
+    "next": "^15.1.2",
+    "next-image-export-optimizer": "^1.18.0",
+    "nextra": "^3.3.1",
+    "nextra-theme-docs": "^3.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.7",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.0",
     "@types/node": "18.11.10",
+    "@types/react": "^19.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "prettier": "^3.4.2",
+    "prettier-plugin-autocorrect": "^0.4.1",
+    "prettier-plugin-multiline-arrays": "^4.0.1",
+    "prettier-plugin-pkg": "^0.18.1",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^4.9.3",
     "wrangler": "^3.99.0"
   },
-  "packageManager": "pnpm@9.14.2"
+  "pnpm": {
+    "patchedDependencies": {
+      "nextra": "patches/nextra.patch"
+    }
+  }
 }

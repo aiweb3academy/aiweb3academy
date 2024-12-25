@@ -1,0 +1,34 @@
+{
+  "printWidth": 120,
+  "arrowParens": "avoid",
+  "semi": false,
+  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
+    },
+    {
+      "files": "*.mdx",
+      "options": {
+        "proseWrap": "always",
+        "semi": false,
+        "trailingComma": "none"
+      }
+    }
+  ],
+  "plugins": [
+    "prettier-plugin-pkg",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-autocorrect",
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-multiline-arrays"
+  ],
+  "importOrder": ["^~/(.*)$", "^@/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
