@@ -6,8 +6,8 @@ import { FaDiscord, FaGithub, FaXTwitter } from 'react-icons/fa6'
 
 const logo = (
   <div>
-    <NextImage src="images/the-thinker.jpg" alt="The Thinker" />
-    <p>AI+Web3 Academy</p>
+    {/*<NextImage src="images/the-thinker.jpg" alt="The Thinker" width={120} height={120} />*/}
+    <p className="text-orange-600 text-xl font-bold">AI+Web3 Academy</p>
   </div>
 )
 
@@ -74,10 +74,7 @@ function Footer() {
 
 const config: DocsThemeConfig = {
   logo,
-  project: {
-    link: 'https://github.com/aiweb3academy/aiweb3academy'
-  },
-  docsRepositoryBase: 'https://github.com/aiweb3academy/aiweb3academy',
+  docsRepositoryBase: 'https://github.com/aiweb3academy/aiweb3academy/tree/main',
   head: function useHead() {
     const { frontMatter, title: pageTitle } = useConfig()
     const { asPath } = useRouter()

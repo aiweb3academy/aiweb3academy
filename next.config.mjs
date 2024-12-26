@@ -3,7 +3,7 @@ import nextra from 'nextra'
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx'
+  themeConfig: './theme.config.tsx',
 })
 
 if (process.env.NODE_ENV === 'development') {
@@ -15,7 +15,7 @@ export default withNextra({
   images: {
     loader: 'custom',
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840]
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
   transpilePackages: ['next-image-export-optimizer'],
   env: {
@@ -26,8 +26,6 @@ export default withNextra({
     nextImageExportOptimizer_exportFolderName: 'nextImageExportOptimizer',
     nextImageExportOptimizer_generateAndUseBlurImages: 'true',
     nextImageExportOptimizer_remoteImageCacheTTL: '0',
-    NEXT_PUBLIC_GA_ID: process.env.NODE_ENV === 'production'
-      ? 'G-XJTB8V0TW6'
-      : ''
-  }
+    NEXT_PUBLIC_GA_ID: process.env.NODE_ENV === 'production' ? 'G-XJTB8V0TW6' : '',
+  },
 })
