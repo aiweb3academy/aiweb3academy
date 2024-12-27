@@ -79,7 +79,7 @@ const config: DocsThemeConfig = {
     const { frontMatter, title: pageTitle } = useConfig()
     const { asPath } = useRouter()
 
-    const title = `${pageTitle}${asPath === '/' ? '' : ' | AIWeb3Academy'}`
+    const title = `${pageTitle}${asPath === '/' ? '' : ' | AI+Web3 Academy'}`
     const { description, canonical, image } = frontMatter
     return (
       <>
