@@ -11,7 +11,7 @@
     "url": "https://github.com/aiweb3academy/aiweb3academy/issues"
   },
   "license": "MIT",
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.15.1",
   "scripts": {
     "build": "next build && next-image-export-optimizer --nextConfigPath ./next.config.mjs",
     "deploy": "wrangler pages deploy",
