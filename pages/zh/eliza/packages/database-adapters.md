@@ -1,16 +1,20 @@
 # 🔧 数据库适配器
 
 ## 概述
+
 数据库适配器为 Eliza 提供持久化层，支持存储和检索记忆、关系、目标及其他核心数据。该系统通过统一接口支持多种数据库后端。
 
 ## 可用的适配器
+
 Eliza 包含以下数据库适配器：
+
 - **PostgreSQL 适配器** (`@eliza/adapter-postgres`) - 适用于生产环境的 PostgreSQL 数据库适配器
 - **SQLite 适配器** (`@eliza/adapter-sqlite`) - 轻量级的 SQLite 适配器，非常适合开发环境
 - **SQL.js 适配器** (`@eliza/adapter-sqljs`) - 用于测试的内存型 SQLite 适配器
 - **Supabase 适配器** (`@eliza/adapter-supabase`) - 适用于 Supabase 的云原生适配器
 
 ## 安装
+
 ```bash
 # PostgreSQL
 pnpm add @eliza/adapter-postgres
@@ -28,14 +32,16 @@ pnpm add @eliza/adapter-supabase
 ## 快速入门
 
 ### SQLite（开发环境）
-```typescript
-import { SqliteDatabaseAdapter } from "@eliza/adapter-sqlite";
-import Database from "better-sqlite3";
 
-const db = new SqliteDatabaseAdapter(new Database("./dev.db"));
+```typescript
+import { SqliteDatabaseAdapter } from '@eliza/adapter-sqlite'
+import Database from 'better-sqlite3'
+
+const db = new SqliteDatabaseAdapter(new Database('./dev.db'))
 ```
 
 ### PostgreSQL（生产环境）
+
 ```typescript
 import { PostgresDatabaseAdapter } from "@eliza/adapter-postgres";
 
@@ -49,60 +55,65 @@ const db = new PostgresDatabaseAdapter({
 ```
 
 ### Supabase（云端）
-```typescript
-import { SupabaseDatabaseAdapter } from "@eliza/adapter-supabase";
 
-const db = new SupabaseDatabaseAdapter(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_API_KEY,
-);
+```typescript
+import { SupabaseDatabaseAdapter } from '@eliza/adapter-supabase'
+
+const db = new SupabaseDatabaseAdapter(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_API_KEY)
 ```
 
 ## 核心概念
 
 ### 记忆存储
+
 记忆是 Eliza 中存储的基本单元。它们代表消息、文档和其他内容，可选择带有用于语义搜索的嵌入向量。
+
 ```typescript
 interface Memory {
-  id: UUID;
+  id: UUID
   content: {
-    text: string;
-    attachments?: Attachment[];
-  };
-  embedding?: number[];
-  userId: UUID;
-  roomId: UUID;
-  agentId: UUID;
-  createdAt: number;
+    text: string
+    attachments?: Attachment[]
+  }
+  embedding?: number[]
+  userId: UUID
+  roomId: UUID
+  agentId: UUID
+  createdAt: number
 }
 ```
 
 ### 关系
+
 关系用于跟踪用户和智能体之间的连接：
+
 ```typescript
 interface Relationship {
-  userA: UUID;
-  userB: UUID;
-  状态: "FRIENDS" | "BLOCKED";
+  userA: UUID
+  userB: UUID
+  状态: 'FRIENDS' | 'BLOCKED'
 }
 ```
 
 ### 目标
+
 目标用于跟踪任务及其进展：
+
 ```typescript
 interface Goal {
-  id: UUID;
-  roomId: UUID;
-  userId: UUID;
-  名称: string;
-  状态: GoalStatus;
-  目标列表: Objective[];
+  id: UUID
+  roomId: UUID
+  userId: UUID
+  名称: string
+  状态: GoalStatus
+  目标列表: Objective[]
 }
 ```
 
 ## 常见操作
 
 ### 记忆管理
+
 ```typescript
 // 创建一个记忆
 await db.createMemory(
@@ -133,6 +144,7 @@ const recent = await db.getMemories({
 ```
 
 ### 关系管理
+
 ```typescript
 // 创建关系
 await db.createRelationship({
@@ -147,6 +159,7 @@ const relationships = await db.getRelationships({
 ```
 
 ### 目标管理
+
 ```typescript
 // 创建目标
 await db.createGoal({
@@ -166,7 +179,9 @@ const goals = await db.getGoals({
 ```
 
 ## 向量搜索
+
 所有适配器都支持通过向量相似度搜索来检索记忆：
+
 ```typescript
 // 通过嵌入向量搜索
 const memories = await db.searchMemories({
@@ -192,6 +207,7 @@ const cached = await db.getCachedEmbeddings({
 ## 性能优化
 
 ### 连接池（PostgreSQL）
+
 ```typescript
 const db = new PostgresDatabaseAdapter({
   连接字符串: process.env.DATABASE_URL,
@@ -202,30 +218,33 @@ const db = new PostgresDatabaseAdapter({
 ```
 
 ### 内存使用（SQLite）
+
 ```typescript
 const db = new SqliteDatabaseAdapter(
-  new Database("./dev.db", {
+  new Database('./dev.db', {
     内存模式: true, // 内存型数据库
     只读: false,
     文件必须存在: false,
   }),
-);
+)
 ```
 
 ### 缓存（所有适配器）
+
 ```typescript
 // 启用记忆缓存
 const memory = new MemoryManager({
   runtime,
-  表名: "messages",
+  表名: 'messages',
   缓存大小: 1000,
   缓存生存时间: 3600,
-});
+})
 ```
 
 ## 模式管理
 
 ### PostgreSQL 迁移
+
 ```sql
 -- migrations/20240318103238_remote_schema.sql
 CREATE TABLE memories (
@@ -242,6 +261,7 @@ CREATE TABLE memories (
 ```
 
 ### SQLite 模式
+
 ```typescript
 const sqliteTables = `
 CREATE TABLE IF NOT EXISTS memories (
@@ -255,17 +275,18 @@ CREATE TABLE IF NOT EXISTS memories (
   "unique" INTEGER DEFAULT 0,
   createdAt INTEGER NOT NULL
 );
-`;
+`
 ```
 
 ## 错误处理
+
 ```typescript
 try {
-  await db.createMemory(memory);
+  await db.createMemory(memory)
 } catch (error) {
-  if (error.code === "SQLITE_CONSTRAINT") {
+  if (error.code === 'SQLITE_CONSTRAINT') {
     // 处理唯一约束冲突
-  } else if (error.code === "23505") {
+  } else if (error.code === '23505') {
     // 处理 Postgres 唯一约束冲突
   } else {
     // 处理其他错误
@@ -274,7 +295,9 @@ try {
 ```
 
 ## 扩展适配器
+
 要创建自定义适配器，请实现 `DatabaseAdapter` 接口：
+
 ```typescript
 class CustomDatabaseAdapter extends DatabaseAdapter {
   async createMemory(memory: Memory, tableName: string): Promise<void> {
@@ -296,30 +319,34 @@ class CustomDatabaseAdapter extends DatabaseAdapter {
 ## 最佳实践
 
 1. **连接管理**
-    - 对 PostgreSQL 使用连接池
-    - 使用 SQLite 时正确关闭连接
-    - 优雅地处理连接错误
+
+   - 对 PostgreSQL 使用连接池
+   - 使用 SQLite 时正确关闭连接
+   - 优雅地处理连接错误
 
 2. **向量搜索**
-    - 根据用例设置合适的匹配阈值
-    - 为嵌入列创建索引以提高性能
-    - 缓存频繁访问的嵌入向量
+
+   - 根据用例设置合适的匹配阈值
+   - 为嵌入列创建索引以提高性能
+   - 缓存频繁访问的嵌入向量
 
 3. **记忆管理**
-    - 为旧记忆实施清理策略
-    - 使用唯一标志防止重复
-    - 考虑对大表进行分区
+
+   - 为旧记忆实施清理策略
+   - 使用唯一标志防止重复
+   - 考虑对大表进行分区
 
 4. **错误处理**
-    - 对临时故障实施重试机制
-    - 记录带有上下文的数据库错误
-    - 对原子操作使用事务
+   - 对临时故障实施重试机制
+   - 记录带有上下文的数据库错误
+   - 对原子操作使用事务
 
 ## 故障排除
 
 ### 常见问题
 
 1. **连接超时**
+
 ```typescript
 // 增加连接超时时间
 const db = new PostgresDatabaseAdapter({
@@ -328,12 +355,14 @@ const db = new PostgresDatabaseAdapter({
 ```
 
 2. **内存泄漏**
+
 ```typescript
 // 定期清理旧记忆
-await db.removeAllMemories(roomId, tableName);
+await db.removeAllMemories(roomId, tableName)
 ```
 
 3. **向量搜索性能**
+
 ```typescript
 // 创建合适的索引
 CREATE INDEX embedding_idx ON memories
@@ -342,5 +371,6 @@ WITH (lists = 100);
 ```
 
 ## 相关资源
+
 - [记忆管理器文档](./core)
 - [数据库模式参考](/api)

@@ -3,5 +3,5 @@ export default {
   agents: '智能体',
   providers: '提供者',
   actions: '动作',
-  evaluators: '评估器'
+  evaluators: '评估器',
 }

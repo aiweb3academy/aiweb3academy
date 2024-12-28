@@ -4,5 +4,5 @@ export default {
   core: '🧠 核心概念',
   guides: '📘 指南',
   advanced: '🎓 高级主题',
-  packages: '📦 包'
+  packages: '📦 包',
 }

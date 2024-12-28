@@ -1,11 +1,11 @@
 export default {
   '*': {
-    type: 'page'
+    type: 'page',
   },
   index: {
-    display: "hidden",
+    display: 'hidden',
     theme: {
-      layout: "raw",
+      layout: 'raw',
     },
   },
   eliza: 'Eliza',
