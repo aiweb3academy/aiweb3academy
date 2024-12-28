@@ -1,15 +1,8 @@
-import NextImage from 'next-image-export-optimizer'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, ThemeSwitch, useConfig } from 'nextra-theme-docs'
 import { FaDiscord, FaGithub, FaXTwitter } from 'react-icons/fa6'
-
-const logo = (
-  <div>
-    {/*<NextImage src="images/the-thinker.jpg" alt="The Thinker" width={120} height={120} />*/}
-    <p className="text-orange-600 text-xl font-bold">AI+Web3 Academy</p>
-  </div>
-)
+import { Logo } from '@/components/logo'
 
 const classes = {
   link: 'hover:underline decoration-from-font [text-underline-position:from-font]'
@@ -33,8 +26,11 @@ function List({ title, items }: { title: string; items: { title: string; url: st
 function Footer() {
   return (
     <div className="w-full">
-      <div className="flex flex-wrap justify-between gap-10">
-        <p className="text-sm">Copyright © {new Date().getFullYear()} AI+Web3 Academy. All rights reserved.</p>
+      <div className="flex flex-wrap justify-between items-end gap-10">
+        <div className="flex flex-col gap-2">
+          <Logo />
+          <p className="text-sm">Copyright © {new Date().getFullYear()} AI Academy @Web3. All rights reserved.</p>
+        </div>
         <div className="flex flex-col gap-4 lg:items-end">
           <ul className="flex gap-5">
             {[
@@ -73,13 +69,13 @@ function Footer() {
 }
 
 const config: DocsThemeConfig = {
-  logo,
+  logo: Logo,
   docsRepositoryBase: 'https://github.com/aiweb3academy/aiweb3academy/tree/main',
   head: function useHead() {
     const { frontMatter, title: pageTitle } = useConfig()
     const { asPath } = useRouter()
 
-    const title = `${pageTitle}${asPath === '/' ? '' : ' | AI+Web3 Academy'}`
+    const title = `${pageTitle}${asPath === '/' ? '' : ' | AI Academy @Web3'}`
     const { description, canonical, image } = frontMatter
     return (
       <>
@@ -95,6 +91,8 @@ const config: DocsThemeConfig = {
         {image && <meta name="og:image" content={image} />}
         <meta property="og:image" content="/images/the-thinker.jpg" />
         <meta property="twitter:site" content="@aiweb3academy" />
+        <link rel="icon" href="/images/cyber-phd/favicon.ico" />
+        <link rel="icon" href="/images/cyber-phd/favicon-32x32.png" type="image/png" />
       </>
     )
   },
@@ -102,7 +100,9 @@ const config: DocsThemeConfig = {
     content: Footer
   },
   color: {
-    hue: 40
+    hue: 192.92,
+    saturation: 82.28,
+    lightness: 30.98
   },
   sidebar: {
     defaultMenuCollapseLevel: 2
