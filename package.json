@@ -25,13 +25,20 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.1.2",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.469.0",
     "next": "^15.1.2",
     "next-image-export-optimizer": "^1.18.0",
     "nextra": "^3.3.1",
     "nextra-theme-docs": "^3.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0"
+    "react-fast-marquee": "^1.6.5",
+    "react-icons": "^5.4.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.7",
