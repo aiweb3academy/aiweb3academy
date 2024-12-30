@@ -62,3 +62,7 @@
     @apply border-border;
   }
 }
+
+html {
+    overflow-x: hidden;
+}

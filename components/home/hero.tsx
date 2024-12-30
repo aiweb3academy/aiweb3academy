@@ -1,4 +1,5 @@
 import NextImage from 'next-image-export-optimizer'
+import { ReactTyped } from 'react-typed'
 
 export function Hero() {
   return (
@@ -25,7 +26,17 @@ export function Hero() {
             Academy @Web3
           </span>
         </div>
-        <p className="text-lg lg:text-2xl text-white">为你提供全面的 AI + Web3 教程、新闻、投研分析和工具资源!</p>
+        <p className="text-lg lg:text-2xl text-white">
+          <ReactTyped
+            strings={[
+              '连接 AI 与 Crypto',
+              'AI + Web3 = 未来',
+              '为你提供全面的 AI + Web3 教程、新闻、投研分析和工具资源!',
+            ]}
+            typeSpeed={80}
+            loop={true}
+          />
+        </p>
       </div>
     </div>
   )
