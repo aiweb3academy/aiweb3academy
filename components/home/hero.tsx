@@ -26,7 +26,7 @@ export function Hero() {
             Academy @Web3
           </span>
         </div>
-        <p className="text-lg lg:text-2xl text-white">
+        <p className="text-lg lg:text-2xl text-white h-12">
           <ReactTyped
             strings={[
               '连接 AI 与 Crypto',
