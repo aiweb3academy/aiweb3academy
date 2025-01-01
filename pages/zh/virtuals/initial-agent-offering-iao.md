@@ -1,4 +1,4 @@
-# 初始智能体发售（Initial Agent Offering, IAO）
+# 首次智能体发行（Initial Agent Offering, IAO）
 
 想象一下，为人工智能智能体打造的 pump.fun：模因币吸引关注 <> 智能体创造收益。
 

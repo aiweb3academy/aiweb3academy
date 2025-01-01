@@ -68,20 +68,11 @@ html {
 }
 
 span:has(+ em) > span > img {
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 span:has( > span > img) + em {
     display: block;
-    padding: 0.75rem 0 0.75rem 0;
     text-align: center;
     color: gray;
-}
-
-img[alt="Simple view"] {
-    width: 50%;
-}
-
-iframe {
-    margin: 2rem auto;
 }
