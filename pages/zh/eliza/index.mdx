@@ -1,0 +1,59 @@
+import NextImage from 'next-image-export-optimizer'
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import ai16zImg from '@/public/images/eliza/ai16z-blurred.png'
+
+<div className="container mx-auto my-32 px-8 max-w-[1140px] 2xl:max-w-[1320px] flex flex-col gap-24">
+  <div className="grid grid-cols-1 lg:grid-cols-2 place-content-center gap-8">
+    <div className="flex flex-col gap-6 text-center lg:text-start">
+      <div className="text-4xl font-bold leading-relaxed">
+        Eliza 是一个简单、快速的<span
+        className="bg-gradient-to-b from-[#ffa600] to-[#ff6f00] bg-clip-text text-transparent">轻量级 AI 智能体</span>框架
+      </div>
+      <div className="text-xl">
+        面向所有人的灵活、可扩展的人工智能代理
+      </div>
+      <div className="flex justify-center lg:justify-start items-center gap-4">
+        <Link href="./eliza/intro">
+          <Button
+            className="bg-orange-500 text-xl px-8 h-16 font-bold bg-gradient-to-b from-[#f98c13] to-[#ffa600]">开始入门</Button>
+        </Link>
+        <iframe src="https://ghbtns.com/github-btn.html?user=elizaOS&repo=eliza&type=star&count=true&size=large"
+                style={{ colorScheme: 'none' }}
+                frameborder="0"
+                width="150"
+                height="30" />
+      </div>
+    </div>
+
+    <div className="relative flex justify-center items-center">
+      <NextImage src={ai16zImg} alt="ai16z"
+                 className="absolute blur-lg rounded-[45%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[-1]"
+      />
+      <div className="relative rounded-lg px-6 py-4 bg-slate-900">
+        <code className="font-mono text-white">{`npm install @ai16z/eliza`}</code>
+      </div>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
+    <div className="col-span-1">
+      <span className="text-3xl inline-block mb-2">🤖</span>
+      <h3 className="text-xl font-semibold light:text-gray-800 mb-4">多智能体框架</h3>
+      <p className="light:text-gray-600">构建并部署在 Discord、Twitter 和 Telegram 等平台上具有一致个性的<strong
+        className="font-bold">自主人工智能智能体</strong>。全面支持语音、文本和媒体交互。</p>
+    </div>
+    <div className="col-span-1">
+      <span className="text-3xl inline-block mb-2">🧠</span>
+      <h3 className="text-xl font-semibold light:text-gray-800 mb-4">高级功能</h3>
+      <p className="light:text-gray-600">内置检索增强生成（RAG）内存系统、文档处理、媒体分析以及自主交易功能。支持多种人工智能模型，包括
+        Llama、GPT-4 和 Claude。</p>
+    </div>
+    <div className="col-span-1">
+      <span className="text-3xl inline-block mb-2">🔌</span>
+      <h3 className="text-xl font-semibold light:text-gray-800 mb-4">可扩展性设计</h3>
+      <p className="light:text-gray-600">通过<b className="font-bold">模块化插件系统</b>创建自定义操作、添加新的平台集成并扩展功能。完整的
+        TypeScript 支持。</p>
+    </div>
+  </div>
+</div>

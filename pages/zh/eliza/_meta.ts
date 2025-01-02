@@ -1,5 +1,11 @@
 export default {
-  index: '🚀 介绍',
+  index: {
+    title: 'Eliza 轻量级智能体框架',
+    theme: {
+      layout: "raw",
+    },
+  },
+  intro: '🚀 介绍',
   'getting-started': '🏁 开始',
   core: '🧠 核心概念',
   guides: '📘 指南',
