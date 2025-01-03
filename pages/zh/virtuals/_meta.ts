@@ -1,6 +1,11 @@
 export default {
-  index: '核心理念',
-  'our-vision-and-belief': '愿景和信念',
+  index: {
+    title: 'Virtuals 协议',
+    theme: {
+      layout: "raw",
+    },
+  },
+  'our-one-liner': '核心理念',
   'what-are-virtual-agents': '什么是 Virtuals 智能体？',
   'initial-agent-offering-iao': '首次智能体发行（IAO）',
   'the-protocol': '协议',
