@@ -14,12 +14,12 @@
 
 1. **克隆并安装**
 
-请务必查看 [最新可用的稳定版本标签](https://github.com/ai16z/eliza/tags) 是什么。
+请务必查看 [最新可用的稳定版本标签](https://github.com/elizaOS/eliza/tags) 是什么。
 
 克隆仓库：
 
 ```bash
-git clone https://github.com/ai16z/eliza.git
+git clone https://github.com/elizaOS/eliza.git
 ```
 
 进入目录：
@@ -42,17 +42,15 @@ git checkout $(git describe --tags --abbrev=0)
 pnpm install --no-frozen-lockfile
 ```
 
-### 快速入门指南更新
-
-### 关于 pnpm 锁文件管理的重要说明
-
-默认情况下，基于.npmrc 中 `frozen-lockfile=true` 的设置，在安装过程中 `pnpm` 锁文件不会更新。若要更新锁文件，你需要运行以下命令：
-
-```bash
-pnpm install --no-frozen-lockfile
-```
-
-请仅在首次初始化仓库、提升包的版本或向 `package.json` 添加新包时使用此命令。这种做法有助于保持项目依赖项的一致性，防止锁文件发生意外更改。
+> **关于 pnpm lockfile 管理的重要说明**
+>
+> 默认情况下，基于 `.npmrc` 中 `frozen-lockfile=true` 的设置，在安装过程中 lockfile 文件（`pnpm-lock.yaml`）不会更新。若要更新 lockfile 文件，你需要运行以下命令：
+>
+> ```bash
+> pnpm install --no-frozen-lockfile
+> ```
+>
+> 请仅在首次初始化仓库、更新依赖包的版本或向 `package.json` 添加新依赖包时使用此命令。这种做法有助于保持项目依赖项的一致性，防止 lockfile 发生意外更改。
 
 构建本地库：
 
@@ -60,24 +58,24 @@ pnpm install --no-frozen-lockfile
 pnpm build
 ```
 
-2. **配置环境**
+2. **配置环境变量**
 
-复制示例环境文件：
+复制示例环境变量文件：
 
 ```bash
-cp.env.example.env
+cp .env.example .env
 ```
 
 编辑 `.env` 并添加你的值：
 
 ```bash
 # 建议的快速入门环境变量
-DISCORD_APPLICATION_ID=  # 用于 Discord 集成
-DISCORD_API_TOKEN=      # 机器人令牌
-HEURIST_API_KEY=       # 用于大语言模型和图像生成的 Heurist API 密钥
-OPENAI_API_KEY=        # OpenAI API 密钥
-GROK_API_KEY=          # Grok API 密钥
-ELEVENLABS_XI_API_KEY= # 来自 elevenlabs 的 API 密钥（用于语音）
+DISCORD_APPLICATION_ID=  # Discord 应用 ID
+DISCORD_API_TOKEN=       # Discord API 令牌
+HEURIST_API_KEY=         # 用于 LLM 和图像生成的 Heurist API 密钥
+OPENAI_API_KEY=          # OpenAI API 密钥
+GROK_API_KEY=            # Grok API 密钥
+ELEVENLABS_XI_API_KEY=   # 来自 elevenlabs 的 API 密钥（用于语音）
 ```
 
 ## 选择你的模型
@@ -85,7 +83,7 @@ ELEVENLABS_XI_API_KEY= # 来自 elevenlabs 的 API 密钥（用于语音）
 Eliza 支持多种 AI 模型：
 
 - **Heurist**：在你的角色文件中设置 `modelProvider: "heurist"`。大多数模型无审查限制。
-  - **大语言模型**：在 [此处](https://docs.heurist.ai/dev-guide/supported-models#large-language-models-llms) 选择可用的大语言模型，并配置 `SMALL_HEURIST_MODEL`、`MEDIUM_HEURIST_MODEL`、`LARGE_HEURIST_MODEL`。
+  - **LLM（大语言模型）**：在 [此处](https://docs.heurist.ai/dev-guide/supported-models#large-language-models-llms) 选择可用的大语言模型，并配置 `SMALL_HEURIST_MODEL`、`MEDIUM_HEURIST_MODEL`、`LARGE_HEURIST_MODEL`。
   - **图像生成**：在 [此处](https://docs.heurist.ai/dev-guide/supported-models#image-generation-models) 选择可用的 Stable Diffusion 或 Flux 模型，并配置 `HEURIST_IMAGE_MODEL`（默认值为 FLUX.1-dev）。
 - **Llama**：设置 `XAI_MODEL=meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo`。
 - **Grok**：设置 `XAI_MODEL=grok-beta`。
@@ -115,9 +113,9 @@ Eliza 支持多种 AI 模型：
 
 查看 `characters/trump.character.json` 或 `characters/tate.character.json`，以此作为模板来复制和自定义智能体的个性与行为。
 
-此外，你可以阅读 `core/src/core/defaultCharacter.ts`（在 0.0.10 版本中，重构后将位于 `packages/core/src/defaultCharacter.ts`）。
+此外，你可以阅读 `packages/core/src/defaultCharacter.ts`。
 
-📝 [角色文档](./core/characterfile.md)
+📝 [角色文件文档](../core/characterfile.md)
 
 2. **启动智能体**
 
@@ -167,8 +165,8 @@ pnpm start:client
 ```bash
 TWITTER_USERNAME=  # 账号用户名
 TWITTER_PASSWORD=  # 账号密码
-TWITTER_EMAIL=    # 账号邮箱
-TWITTER_COOKIES=  # 账号 cookies（auth_token 和 CT0）
+TWITTER_EMAIL=     # 账号邮箱
+TWITTER_COOKIES=   # 账号 cookies（auth_token 和 CT0）
 ```
 
 **重要提示**：登录 [Twitter 开发者门户](https://developer.twitter.com)，并为你的账号启用 “Automated” 标签，以避免被标记为不真实账号。
@@ -178,7 +176,7 @@ TWITTER_COOKIES=  # 账号 cookies（auth_token 和 CT0）
 `TWITTER_COOKIES` 变量应该是一个包含必要 cookies 的 JSON 字符串。你可以在浏览器的开发者工具中找到这些 cookies。以下是一个示例格式：
 
 ```bash
-TWITTER_COOKIES='[{"key":"auth_token","value":"你的令牌","domain":".twitter.com"},
+TWITTER_COOKIES='[{"key":"auth_token","value":"你的 token","domain":".twitter.com"},
   {"key":"ct0","value":"你的 ct0","domain":".twitter.com"},
   {"key":"guest_id","value":"你的 guest_id","domain":".twitter.com"}]'
 ```
@@ -189,7 +187,7 @@ TWITTER_COOKIES='[{"key":"auth_token","value":"你的令牌","domain":".twitter.
 2. 将你的机器人令牌添加到 `.env` 中：
 
 ```bash
-TELEGRAM_BOT_TOKEN=你的令牌
+TELEGRAM_BOT_TOKEN=  #你的令牌
 ```
 
 ## 可选：GPU 加速
@@ -239,8 +237,9 @@ pnpm install --include=optional sharp
    - 检查 GPU 与工具包的兼容性。
    - 确保设置了正确的环境变量。
 
-4. **退出状态 1**
-   如果你看到：
+4. **Exit Status 1**
+
+如果你看到：
 
 ```
 triggerUncaughtException(
@@ -307,11 +306,11 @@ pnpm i
 
 智能体运行起来后，你可以探索以下内容：
 
-1. 🤖 [了解智能体](./core/agents.md)
-2. 📝 [创建自定义角色](./core/characterfile.md)
-3. ⚡ [添加自定义动作](./core/actions.md)
-4. 🔧 [高级配置](./guides/configuration.md)
+1. 🤖 [了解智能体](../core/agents.md)
+2. 📝 [创建自定义角色](../core/characterfile.md)
+3. ⚡ [添加自定义动作](../core/actions.md)
+4. 🔧 [高级配置](../guides/configuration.md)
 
-如需详细的 API 文档、故障排除和高级功能，请查看我们的 [完整文档](https://ai16z.github.io/eliza/)。
+如需详细的 API 文档、故障排除和高级功能，请查看我们的 [完整文档](../)。
 
 加入我们的 [Discord 社区](https://discord.gg/ai16z) 获取支持和更新！

@@ -1,6 +1,6 @@
-# 🔌 提供者
+# 🔌 提供者（Providers）
 
-[提供者](/api/interfaces/provider)是将动态上下文和实时信息注入智能体交互的核心模块。它们充当智能体和各种外部系统之间的桥梁，使智能体能够访问市场数据、钱包信息、情感分析和时间上下文。
+[提供者](../api/interfaces/Provider)是将动态上下文和实时信息注入智能体交互的核心模块。它们充当智能体和各种外部系统之间的桥梁，使智能体能够访问市场数据、钱包信息、情绪分析和时间上下文。
 
 ---
 
@@ -35,19 +35,19 @@ const timeProvider: Provider = {
     const currentDate = new Date()
     const currentTime = currentDate.toLocaleTimeString('en-US')
     const currentYear = currentDate.getFullYear()
-    return `当前时间是：${currentTime}, ${currentYear}`
+    return `The current time is: ${currentYear}`
   },
 }
 ```
 
 ### 事实提供者
 
-来自引导插件 - 维护对话事实：
+来自 bootstrap 插件 - 维护对话事实：
 
 ```typescript
 const factsProvider: Provider = {
   get: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
-    // 为最近的消息创建嵌入并检索相关事实
+    // 为最近的消息创建 embedding 并检索相关 facts
     const recentMessages = formatMessages({
       messages: state?.recentMessagesData?.slice(-10),
       actors: state?.actorsData,
@@ -60,24 +60,24 @@ const factsProvider: Provider = {
       agentId: runtime.agentId,
     })
 
-    // 合并并格式化事实
+    // 合并并格式化 facts
     const allFacts = [...recentFactsData] // 如果没有重叠，可以跳过去重
     const formattedFacts = formatFacts(allFacts)
 
-    return `${runtime.character.name} 知道的关键事实：\n${formattedFacts}`
+    return `Key facts that ${runtime.character.name} knows:\n${formattedFacts}`
   },
 }
 
 export { factsProvider }
 ```
 
-### 厌倦提供者
+### 厌倦（boredom）提供者
 
-来自引导插件 - 通过计算聊天室内最近消息的智能体厌倦水平来管理对话动态和参与度。
+来自 bootstrap 插件 - 通过计算聊天室内最近消息的智能体厌倦水平来管理对话动态和参与度。
 
 1. **数据结构**：
 
-   - **boredomLevels**：一个对象数组，每个对象表示一个厌倦水平，包含一个最低分数和一组反映智能体当前参与度的状态消息。
+   - **boredomLevels**：一个 object 数组，每个 object 表示一个厌倦水平，包含一个最低分数和一组反映智能体当前参与度的状态消息。
    - **interestWords**、**cringeWords** 和 **negativeWords**：根据其在消息中的出现情况影响厌倦分数的单词数组。
 
 2. **厌倦计算**：
@@ -117,11 +117,10 @@ const boredomProvider: Provider = {
 ```
 
 特点：
-
 - 参与度跟踪
 - 对话流程管理
 - 自然脱离
-- 情感分析
+- 情绪分析
 - 响应调整
 
 ---
@@ -131,7 +130,7 @@ const boredomProvider: Provider = {
 ### 基本提供者模板
 
 ```typescript
-import { IAgentRuntime, Memory, Provider, State } from '@ai16z/eliza'
+import { IAgentRuntime, Memory, Provider, State } from '@elizaos/core'
 
 const customProvider: Provider = {
   get: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
@@ -147,7 +146,7 @@ const customProvider: Provider = {
 }
 ```
 
-### 内存集成
+### 记忆集成
 
 ```typescript
 const memoryProvider: Provider = {
@@ -219,7 +218,7 @@ async function fetchDataWithCache<T>(key: string, fetcher: () => Promise<T>): Pr
 
 ## 与运行时的集成
 
-提供者向 [AgentRuntime](/api/classes/AgentRuntime) 注册：
+提供者向 [AgentRuntime](../api/classes/AgentRuntime) 注册：
 
 ```typescript
 // 注册提供者
@@ -232,7 +231,7 @@ const state = await runtime.composeState(message)
 ## 示例：完整的提供者
 
 ```typescript
-import { IAgentRuntime, Memory, Provider, State } from '@ai16z/eliza'
+import { IAgentRuntime, Memory, Provider, State } from '@elizaos/core'
 
 const comprehensiveProvider: Provider = {
   get: async (runtime: IAgentRuntime, message: Memory, state?: State) => {
@@ -282,7 +281,7 @@ ${facts.map(f => `- ${f.content.text}`).join('\n')}
 1. **过时数据**
 
 ```typescript
-// 实施缓存失效
+// 实现缓存失效
 const invalidateCache = async (pattern: string) => {
   const keys = await cache.keys(pattern)
   await Promise.all(keys.map(k => cache.del(k)))
@@ -292,7 +291,7 @@ const invalidateCache = async (pattern: string) => {
 2. **速率限制**
 
 ```typescript
-// 实施回退策略
+// 实现回退策略
 const backoff = async (attempt: number) => {
   const delay = Math.min(1000 * Math.pow(2, attempt), 10000)
   await new Promise(resolve => setTimeout(resolve, delay))
@@ -302,7 +301,7 @@ const backoff = async (attempt: number) => {
 3. **API 故障**
 
 ```typescript
-// 实施回退数据源
+// 实现回退数据源
 const getFallbackData = async () => {
   // 尝试其他数据源
 }
@@ -313,4 +312,4 @@ const getFallbackData = async () => {
 ## 进一步阅读
 
 - [智能体运行时](./agents.md)
-- [记忆系统](../../packages/core)
+- [记忆系统](../packages/core)

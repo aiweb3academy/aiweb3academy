@@ -449,4 +449,4 @@ class StateManager {
 
 ## 相关文档
 
-- [API 参考](/api/classes/AgentRuntime)
+- [API 参考](../api/classes/AgentRuntime)

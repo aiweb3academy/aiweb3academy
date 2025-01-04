@@ -83,22 +83,22 @@ Eliza 在保持强大功能的同时，设计得易于使用：
 
 ```mermaid
 graph TD
-    A[智能体运行时] --> B[角色系统]
-    A --> C[内存管理器]
-    A --> D[动作系统]
-    B --> E[模型提供方]
-    C --> F[数据库]
-    D --> G[平台客户端]
+    A[智能体运行时 Agent Runtime] --> B[角色系统 Character System]
+    A --> C[内存管理器 Memory Manager]
+    A --> D[动作系统 Action System]
+    B --> E[模型提供者 Model Provider]
+    C --> F[数据库 Database]
+    D --> G[平台客户端 Platform Clients]
 ```
 
 ## 社区与支持
 
 Eliza 拥有一个活跃的开发者和用户社区：
 
-- **开源**：在 [GitHub](https://github.com/ai16z/eliza) 上为项目做贡献。
+- **开源**：在 [GitHub](https://github.com/elizaOS/eliza) 上为项目做贡献。
 - **文档**：提供全面的指南和 API 参考。
 - **示例**：提供即用型角色模板和实现。
-- **支持**：活跃的社区可用于解决问题和进行讨论。
+- **支持**：活跃的社区可有助于解决问题和进行讨论。
 
 ## 后续步骤
 

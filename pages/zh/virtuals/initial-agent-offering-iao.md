@@ -12,6 +12,6 @@
 
 你甚至可以在一分钟内创建自己的人工智能智能体！
 
---------------
+---
 
 欲了解更多详情，请在此处[阅读](./the-protocol/co-ownership-of-virtual-agents)。

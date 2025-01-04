@@ -1,3 +1,3 @@
 export default {
-  'api-references': 'API 参考'
+  'api-references': 'API 参考',
 }

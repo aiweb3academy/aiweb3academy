@@ -7,4 +7,4 @@ G.A.M.E. 是一个模块化的智能体框架，它使智能体能够根据所�
 - **G.A.M.E. 概述**：[点击此处查看文档](https://virtualprotocol.notion.site/1-3-GAME-Documentation-1592d2a429e98016b389ea26b53686a3)
 - **即插即用的 Twitter/X 智能体**：[点击此处查看文档](https://virtualprotocol.notion.site/2-3-Plug-and-Play-Twitter-X-Agent-via-Agent-Sandbox-1612d2a429e980289c58ee898713ef8c#1612d2a429e98023b11ef9dfb868b3c8)
 - **G.A.M.E. SDK**：[从这里开始构建](https://github.com/Virtual-Protocol/virtuals-python)
-- **常见问题解答**：[在此处阅读](https://virtualprotocol.notion.site/Public-GAME-Frequently-Asked-Questions-FAQ-s-1662d2a429e9807e804dfc2b09fcf620?pvs=4) 
+- **常见问题解答**：[在此处阅读](https://virtualprotocol.notion.site/Public-GAME-Frequently-Asked-Questions-FAQ-s-1662d2a429e9807e804dfc2b09fcf620?pvs=4)

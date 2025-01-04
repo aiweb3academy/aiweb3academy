@@ -1,6 +1,6 @@
 # 📊 评估器
 
-[评估器](/api/interfaces/evaluator)是从对话中评估和提取信息的核心组件。它们与 [AgentRuntime](/api/classes/AgentRuntime) 的评估系统相集成。
+[评估器](../api/interfaces/Evaluator)是从对话中评估和提取信息的核心组件。它们与 [AgentRuntime](../api/classes/AgentRuntime) 的评估系统相集成。
 
 ---
 
@@ -199,7 +199,7 @@ const memoryEvaluator: Evaluator = {
 
 ## 与智能体运行时的集成
 
-[AgentRuntime](/api/classes/AgentRuntime) 通过其 [evaluate](/api/classes/AgentRuntime#evaluate) 方法处理评估器：
+[AgentRuntime](../api/classes/AgentRuntime) 通过其 [evaluate](../api/classes/AgentRuntime#evaluate) 方法处理评估器：
 
 ```typescript
 // 注册评估器

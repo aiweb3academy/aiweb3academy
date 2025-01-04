@@ -25,9 +25,7 @@ export function Overview() {
 
       <p className="text-xl lg:text-3xl mt-40 md:mt-80 mb-4">现在就学习怎么创建和共享 AI 智能体</p>
       <Link href="./virtuals/our-one-liner">
-        <Button className="text-2xl px-8 h-16 font-bold bg-gradient-to-b from-[#44bcc3] to-[#3dcbd4]">
-          开始入门
-        </Button>
+        <Button className="text-2xl px-8 h-16 font-bold bg-gradient-to-b from-[#44bcc3] to-[#3dcbd4]">开始入门</Button>
       </Link>
 
       <p className="text-xl lg:text-3xl mt-40 md:mt-80">Virtuals 引擎创建</p>

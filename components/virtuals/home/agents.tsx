@@ -12,9 +12,15 @@ export function Agents() {
         'aikoi.png',
         'sanctum.png',
         'ton.svg',
-      ].map((filename) => (
+      ].map(filename => (
         <div key={filename} className="w-16 h-12 md:w-44 md:h-32 flex justify-center items-center">
-          <NextImage src={`/images/virtuals/${filename}`} alt={filename} width={128} height={128} className="size-12 md:size-32" />
+          <NextImage
+            src={`/images/virtuals/${filename}`}
+            alt={filename}
+            width={128}
+            height={128}
+            className="size-12 md:size-32"
+          />
         </div>
       ))}
     </Marquee>

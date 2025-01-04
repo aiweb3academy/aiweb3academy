@@ -64,15 +64,15 @@
 }
 
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 span:has(+ em) > span > img {
-    margin: 1rem auto;
+  margin: 1rem auto;
 }
 
-span:has( > span > img) + em {
-    display: block;
-    text-align: center;
-    color: gray;
+span:has(> span > img) + em {
+  display: block;
+  text-align: center;
+  color: gray;
 }

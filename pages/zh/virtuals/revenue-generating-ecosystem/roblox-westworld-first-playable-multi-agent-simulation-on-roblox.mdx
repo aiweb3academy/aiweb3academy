@@ -1,13 +1,21 @@
 # Roblox 西部世界 —— Roblox 上首个可玩的多智能体模拟游戏
 
 <div className="my-4 flex justify-center">
-<iframe width="768" height="432" src="https://www.youtube.com/embed/TuiThofZKhk" title="Presenting Project Westworld: The First Playable Autonomous World on Roblox" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe
+    width="768"
+    height="432"
+    src="https://www.youtube.com/embed/TuiThofZKhk"
+    title="Presenting Project Westworld: The First Playable Autonomous World on Roblox"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 </div>
 
 “西部世界”项目是 Roblox 上的一个交互式模拟游戏，其中包含由我们的 GAME 框架驱动的自主智能体。它的灵感来源于“西部世界”——一个由人工智能仿生人居住的小镇。在这个狂野西部世界中，玩家被投放到一个隐藏着反派“强盗”的世界，“强盗”妄图夺取权力、制造混乱。玩家的目标是找出这个“强盗”，并影响其他智能体将其抓获。
 
-![](/images/virtuals/the-simulation-built-in-roblox.webp)
-*在 Roblox 中构建的模拟游戏*
+![](/images/virtuals/the-simulation-built-in-roblox.webp) _在 Roblox 中构建的模拟游戏_
 
 ### 智能体的自主性
 
@@ -15,8 +23,7 @@
 
 ### 个性
 
-![](/images/virtuals/example-of-an-agent-character-profile.avif)
-*智能体角色资料示例*
+![](/images/virtuals/example-of-an-agent-character-profile.avif) _智能体角色资料示例_
 
 以伊格纳西奥·莫拉莱斯为例，这是一个曾经遭遇背叛的掠夺者。如今，他将内心的伤痛转化为通过残忍且混乱的手段来追求掌控力、权力和财富的欲望。这段背景故事以及伊格纳西奥制造最大程度混乱和抢劫富人的目标，以角色卡的形式融入了他的“个性”设定中。
 
@@ -25,14 +32,13 @@
 伊格纳西奥的个性，连同其他一些变量，如游戏状态、他之前的行动以及长期记忆等，都会输入到高级任务规划器中。这会为他生成一个高级任务，然后该任务会被输入到行动规划器和执行器中，从而为伊格纳西奥在游戏中生成一系列具体、可在游戏环境中执行的动作。他还会以观察结果、奖励、成功反馈等形式接收游戏内的反馈，这些反馈用于为他的计划和后续行动提供信息并进行更新。
 
 ![](/images/virtuals/illustration-of-how-an-agent-creates-plans-and-tasks.webp)
-*智能体如何根据输入和反馈制定计划与任务的图示*
+_智能体如何根据输入和反馈制定计划与任务的图示_
 
 拥有一个有目标且能以自主方式制定策略来实现这些目标的角色，极大地提升了当今游戏中 NPC（非玩家角色）的体验。标准的游戏机器人只有固定的路径和选项，而自主智能体能够从其所处的环境、其他智能体以及周围玩家那里获取输入信息，从而在游戏世界中独立制定计划并采取行动。这使得智能体变得更加难以预测且更像人类，创造出更具沉浸感的游戏体验。
 
 ### 与环境的互动
 
-![](/images/virtuals/examples-of-interactions-between-an-agent-and-its-environment.webp)
-*智能体与环境之间的互动示例*
+![](/images/virtuals/examples-of-interactions-between-an-agent-and-its-environment.webp) _智能体与环境之间的互动示例_
 
 游戏中的智能体还能够与游戏环境进行互动。他们可以在自己的物品栏中存储或取出物品，可以使用物品（例如扔出一把刀），还能与环境中的物体进行交互（例如打开一个保险箱）。开发者可以利用这一能力在动作空间中添加更多物品，从而增加故事情节的多样性。
 
@@ -41,9 +47,16 @@
 我们发现，与使用标准 NPC 相比，将自主智能体作为 NPC 引入游戏会在同一游戏中产生更多样化的故事情节和结果。我们在游戏世界中引入的智能体越多，互动就变得越复杂，意外情况也会不断出现，多次游戏过程中的重复性很低。这使得游戏本质上成为了一个可以无限重玩的世界。每次游戏，自主智能体都会在游戏世界中创造出多样化的故事情节和无限种可能的场景。
 
 <div className="my-4 flex justify-center">
-<iframe width="768" height="432" src="https://www.youtube.com/embed/FUTG_xkmKlQ" title="Diverse storylines in AI Westworld Roblox game" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe
+    width="768"
+    height="432"
+    src="https://www.youtube.com/embed/FUTG_xkmKlQ"
+    title="Diverse storylines in AI Westworld Roblox game"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 </div>
 
-<div className="text-center text-gray-500">
-*无限种情景*
-</div>
+<div className="text-center text-gray-500">*无限种情景*</div>

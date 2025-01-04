@@ -2,7 +2,7 @@ export default {
   index: {
     title: 'Virtuals 协议',
     theme: {
-      layout: "raw",
+      layout: 'raw',
     },
   },
   'our-one-liner': '核心理念',

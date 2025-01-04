@@ -1,4 +1,4 @@
-# ⚡ 动作
+# ⚡ 动作（Actions）
 
 动作是 Eliza 中的核心构建块，用于定义智能体如何响应和与消息交互。它们允许智能体与外部系统交互、修改其行为并执行超出简单消息回复的任务。
 
@@ -9,11 +9,11 @@
 每个动作包含以下内容：
 
 - `name`：动作的唯一标识符
-- `similes`：替代名称/变体的数组
+- `similes`：替代性的名称/变体的数组
 - `description`：动作目的的详细解释
 - `validate`：检查动作是否合适的函数
 - `handler`：动作行为的实现
-- `examples`：使用模式示例数组
+- `examples`：使用模式示例的数组
 
 ---
 
@@ -30,7 +30,7 @@ interface Action {
 }
 ```
 
-来源：https://github.com/ai16z/eliza/packages/core/src/types.ts
+来源：https://github.com/elizaos/eliza/packages/core/src/types.ts
 
 ---
 
@@ -67,7 +67,7 @@ interface Action {
 
 - 记录交易/购买订单
 - 处理用户的信念水平
-- 验证股票代码和合约地址
+- 验证代币符号和合约地址
 
 ```typescript
 const take_order: Action = {
@@ -83,7 +83,7 @@ const take_order: Action = {
 }
 ```
 
-来源：https://github.com/ai16z/eliza/packages/plugin-solana/src/actions/takeOrder.ts
+来源：https://github.com/elizaos/eliza/packages/plugin-solana/src/actions/takeOrder.ts
 
 ---
 
@@ -137,12 +137,17 @@ test('验证动作行为', async () => {
 
 ```typescript
 interface Action {
-  name: string
-  similes: string[]
-  description: string
-  validate: (runtime: IAgentRuntime, message: Memory) => Promise<boolean>
-  handler: (runtime: IAgentRuntime, message: Memory, state?: State) => Promise<void>
-  examples: ActionExample[][]
+  name: string;
+  similes: string[];
+  description: string;
+  validate: (runtime: IAgentRuntime, message: Memory) => Promise<boolean>;
+  handler: (
+    runtime: IAgentRuntime,
+    message: Memory,
+    state?: State,
+  ) => Promise<void>;
+  examples: ActionExample[][];
+  suppressInitialMessage?: boolean;
 }
 ```
 
@@ -154,6 +159,7 @@ interface Action {
 - **validate**：确定动作是否可以执行
 - **handler**：实现动作的行为
 - **examples**：展示正确的使用模式
+- **suppressInitialMessage**：当该值为真时，会在处理操作之前抑制初始响应消息。这对于那些会自行生成响应的操作（如图像生成）很有用。
 
 ---
 

@@ -1,3 +1,3 @@
 export default {
-  'token-distribution': '代币分配'
+  'token-distribution': '代币分配',
 }

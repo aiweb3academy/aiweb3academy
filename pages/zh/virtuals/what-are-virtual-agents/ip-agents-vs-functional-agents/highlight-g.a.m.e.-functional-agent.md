@@ -1,8 +1,7 @@
 # G.A.M.E.（功能性智能体）
 
-
 ![](/images/virtuals/g.a.m.e.-functional-agent.png)
-*G.A.M.E. 功能性智能体*
+_G.A.M.E. 功能性智能体_
 
 生成式自主多模态实体（Generative Autonomous Multimodal Entities, G.A.M.E.）是首款为开发者设计的产品，开发者可通过应用程序编程接口（API）和软件开发工具包（SDK）来访问和试用我们的人工智能智能体。
 

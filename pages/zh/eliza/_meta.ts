@@ -2,7 +2,7 @@ export default {
   index: {
     title: 'Eliza 轻量级智能体框架',
     theme: {
-      layout: "raw",
+      layout: 'raw',
     },
   },
   intro: '🚀 介绍',
@@ -11,4 +11,8 @@ export default {
   guides: '📘 指南',
   advanced: '🎓 高级主题',
   packages: '📦 包',
+  '---': {
+    type: 'separator',
+  },
+  api: 'API',
 }

@@ -137,18 +137,23 @@ function StackElementDesc({ section }: { section: string }) {
 }
 
 export function ProtocolStack() {
-  const [section, setSection] = useState('Agent Prompting Interface')
+  const [section, _setSection] = useState('Agent Prompting Interface')
   const [index, setIndex] = useState(0)
+
+  const setSection = useCallback((section: string) => {
+    _setSection(section)
+    setIndex(sections.indexOf(section))
+  }, [])
 
   const nextIndex = useCallback(() => {
     if (index < sections.length - 1) {
-      setSection(sections[index + 1])
+      _setSection(sections[index + 1])
       setIndex(index + 1)
     }
   }, [index])
   const prevIndex = useCallback(() => {
     if (index > 0) {
-      setSection(sections[index - 1])
+      _setSection(sections[index - 1])
       setIndex(index - 1)
     }
   }, [index])
