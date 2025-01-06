@@ -1,3 +1,4 @@
+import { withPayload } from "@payloadcms/next/withPayload";
 import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev'
 import nextra from 'nextra'
 
@@ -11,7 +12,7 @@ if (process.env.NODE_ENV === 'development') {
   await setupDevPlatform()
 }
 
-export default withNextra({
+export default withPayload(withNextra({
   output: 'export',
   images: {
     loader: 'custom',
@@ -40,4 +41,4 @@ export default withNextra({
       permanent: true,
     },
   ],
-})
+}))
