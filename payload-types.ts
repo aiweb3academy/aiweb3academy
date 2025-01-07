@@ -62,17 +62,35 @@ export interface UserAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: number;
+  id: string;
+  email: string;
+  name?: string | null;
+  image?: string | null;
+  emailVerified?: string | null;
+  accounts?:
+    | {
+        id?: string | null;
+        provider: string;
+        providerAccountId: string;
+        type: string;
+      }[]
+    | null;
+  sessions?:
+    | {
+        id?: string | null;
+        sessionToken: string;
+        expires: string;
+      }[]
+    | null;
+  verificationTokens?:
+    | {
+        id?: string | null;
+        token: string;
+        expires: string;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -102,7 +120,7 @@ export interface PayloadLockedDocument {
   document?:
     | ({
         relationTo: 'users';
-        value: number | User;
+        value: string | User;
       } | null)
     | ({
         relationTo: 'media';
@@ -111,7 +129,7 @@ export interface PayloadLockedDocument {
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -124,7 +142,7 @@ export interface PayloadPreference {
   id: number;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -155,15 +173,35 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  id?: T;
+  email?: T;
+  name?: T;
+  image?: T;
+  emailVerified?: T;
+  accounts?:
+    | T
+    | {
+        id?: T;
+        provider?: T;
+        providerAccountId?: T;
+        type?: T;
+      };
+  sessions?:
+    | T
+    | {
+        id?: T;
+        sessionToken?: T;
+        expires?: T;
+      };
+  verificationTokens?:
+    | T
+    | {
+        id?: T;
+        token?: T;
+        expires?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

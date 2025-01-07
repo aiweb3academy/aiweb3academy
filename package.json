@@ -21,7 +21,10 @@
     "lint": "eslint --ignore-path .gitignore .",
     "pages:build": "next-on-pages",
     "preview": "wrangler pages dev --ip 0.0.0.0",
-    "start": "next start"
+    "start": "next start",
+    "generate:types": "payload generate:types",
+    "generate:schema": "payload-graphql generate:schema",
+    "generate:importmap": "payload generate:importmap"
   },
   "dependencies": {
     "@next/third-parties": "^15.1.2",
@@ -38,10 +41,12 @@
     "graphql": "^16.8.1",
     "lucide-react": "^0.469.0",
     "next": "^15.1.2",
+    "next-auth": "5.0.0-beta.25",
     "next-image-export-optimizer": "^1.18.0",
     "nextra": "^3.3.1",
     "nextra-theme-docs": "^3.3.1",
     "payload": "^3.14.0",
+    "payload-authjs": "^0.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",
