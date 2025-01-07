@@ -13,7 +13,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default withPayload(withNextra({
-  output: 'export',
   images: {
     loader: 'custom',
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

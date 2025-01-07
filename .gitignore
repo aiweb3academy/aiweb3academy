@@ -4,3 +4,7 @@ out
 .vercel
 .wrangler
 .idea
+
+.env
+.env.production
+.env.local
