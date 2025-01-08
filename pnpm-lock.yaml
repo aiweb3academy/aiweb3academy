@@ -70,9 +70,6 @@ importers:
       payload:
         specifier: ^3.14.0
         version: 3.14.0(bufferutil@4.0.9)(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)(utf-8-validate@6.0.5)
-      payload-authjs:
-        specifier: ^0.4.0
-        version: 0.4.0(t6vymnc6wgz7v6t4hg3k2r6d7q)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -207,20 +204,6 @@ packages:
 
   '@auth/core@0.37.2':
     resolution: {integrity: sha512-kUvzyvkcd6h1vpeMAojK2y7+PAV5H+0Cc9+ZlKYDFhDY31AlvsB+GW5vNO4qE3Y07KeQgvNO9U0QUx/fN62kBw==}
-    peerDependencies:
-      '@simplewebauthn/browser': ^9.0.1
-      '@simplewebauthn/server': ^9.0.2
-      nodemailer: ^6.8.0
-    peerDependenciesMeta:
-      '@simplewebauthn/browser':
-        optional: true
-      '@simplewebauthn/server':
-        optional: true
-      nodemailer:
-        optional: true
-
-  '@auth/core@0.37.4':
-    resolution: {integrity: sha512-HOXJwXWXQRhbBDHlMU0K/6FT1v+wjtzdKhsNg0ZN7/gne6XPsIrjZ4daMcFnbq0Z/vsAbYBinQhhua0d77v7qw==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -5354,15 +5337,6 @@ packages:
   pathe@1.1.2:
     resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
-  payload-authjs@0.4.0:
-    resolution: {integrity: sha512-lAHalJUKHGUQVDCuAU1Fg7sTj3k6sqSlfLG9kf4ojRn5edbXaE2QxfIetlVkXf7HCY+bsSnabhn4Xm93OJ/5qw==}
-    peerDependencies:
-      '@payloadcms/next': ^3.0.0
-      '@payloadcms/ui': ^3.0.0
-      next: ^15.0.0
-      next-auth: ^5.0.0-beta.25
-      payload: ^3.0.0
-
   payload@3.14.0:
     resolution: {integrity: sha512-frbWjci/VXcqBjrpG6cJBjtiJluXuBDrPghjPSdzRXpvR3REyijgSaGP7T32c9z2zR0Erauw67oWV9w0G1AlXw==}
     engines: {node: ^18.20.2 || >=20.9.0}
@@ -5559,16 +5533,8 @@ packages:
     peerDependencies:
       preact: '>=10'
 
-  preact-render-to-string@6.5.11:
-    resolution: {integrity: sha512-ubnauqoGczeGISiOh6RjX0/cdaF8v/oDXIjO85XALCQjwQP+SB4RDXXtvZ6yTYSjG+PC1QRP2AhPgCEsM2EvUw==}
-    peerDependencies:
-      preact: '>=10'
-
   preact@10.11.3:
     resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
-
-  preact@10.24.3:
-    resolution: {integrity: sha512-Z2dPnBnMUfyQfSQ+GBdsGa16hz35YmLmtTLhM169uW944hYL6xzTYkJjC07j+Wosz733pMWx0fgON3JNw1jJQA==}
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
@@ -6902,16 +6868,6 @@ snapshots:
       oauth4webapi: 3.1.4
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
-    optionalDependencies:
-      nodemailer: 6.9.10
-
-  '@auth/core@0.37.4(nodemailer@6.9.10)':
-    dependencies:
-      '@panva/hkdf': 1.2.1
-      jose: 5.9.6
-      oauth4webapi: 3.1.4
-      preact: 10.24.3
-      preact-render-to-string: 6.5.11(preact@10.24.3)
     optionalDependencies:
       nodemailer: 6.9.10
 
@@ -13047,19 +13003,6 @@ snapshots:
 
   pathe@1.1.2: {}
 
-  payload-authjs@0.4.0(t6vymnc6wgz7v6t4hg3k2r6d7q):
-    dependencies:
-      '@auth/core': 0.37.4(nodemailer@6.9.10)
-      '@payloadcms/next': 3.14.0(@types/react@19.0.2)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.14.0(bufferutil@4.0.9)(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
-      '@payloadcms/ui': 3.14.0(@types/react@19.0.2)(monaco-editor@0.52.2)(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.14.0(bufferutil@4.0.9)(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)(utf-8-validate@6.0.5))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
-      next: 15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4)
-      next-auth: 5.0.0-beta.25(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(nodemailer@6.9.10)(react@19.0.0)
-      payload: 3.14.0(bufferutil@4.0.9)(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)(utf-8-validate@6.0.5)
-    transitivePeerDependencies:
-      - '@simplewebauthn/browser'
-      - '@simplewebauthn/server'
-      - nodemailer
-
   payload@3.14.0(bufferutil@4.0.9)(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)(utf-8-validate@6.0.5):
     dependencies:
       '@monaco-editor/react': 4.6.0(monaco-editor@0.52.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -13289,13 +13232,7 @@ snapshots:
       preact: 10.11.3
       pretty-format: 3.8.0
 
-  preact-render-to-string@6.5.11(preact@10.24.3):
-    dependencies:
-      preact: 10.24.3
-
   preact@10.11.3: {}
-
-  preact@10.24.3: {}
 
   prelude-ls@1.2.1: {}
 

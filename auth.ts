@@ -1,12 +1,8 @@
 import NextAuth from 'next-auth'
-import { withPayload } from 'payload-authjs'
+import Resend from 'next-auth/providers/resend'
 
-import { authConfig } from './auth.config'
-import payloadConfig from './payload.config'
-
-export const { handlers, signIn, signOut, auth } = NextAuth(
-  withPayload(authConfig, {
-    payloadConfig,
-    updateUserOnSignIn: true,
-  }),
-)
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [
+    Resend,
+  ],
+})

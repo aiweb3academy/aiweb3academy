@@ -4,11 +4,9 @@ import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
-import { authjsPlugin } from 'payload-authjs'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
-import { authConfig } from './auth.config'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
 
@@ -37,8 +35,5 @@ export default buildConfig({
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
-    authjsPlugin({
-      authjsConfig: authConfig,
-    }),
   ],
 })
