@@ -23,8 +23,11 @@
         "./*"
       ],
       "@payload-config": [
-        "./payload.config.ts"
-      ]
+        "./payload/payload.config.ts"
+      ],
+      "@/payload-types": [
+        "./payload/payload-types"
+      ],
     },
     "plugins": [
       {
