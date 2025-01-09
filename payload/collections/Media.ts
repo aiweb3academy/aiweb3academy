@@ -1,12 +1,7 @@
 import { FixedToolbarFeature, InlineToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
 import type { CollectionConfig } from 'payload'
-import { fileURLToPath } from 'url'
 
 import { isMember } from '@/payload/access/member'
-
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -33,41 +28,36 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: {
-    // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
-    staticDir: path.resolve(dirname, '../../public/media'),
-    adminThumbnail: 'thumbnail',
+    bulkUpload: true,
+    crop: true,
     focalPoint: true,
+    disableLocalStorage: true,
+    displayPreview: true,
+    staticDir: 'media',
+    adminThumbnail: 'thumbnail',
+    mimeTypes: ['image/*', 'video/*'],
     imageSizes: [
       {
         name: 'thumbnail',
-        width: 300,
+        width: 400,
+        height: 300,
+        position: 'centre',
       },
       {
-        name: 'square',
-        width: 500,
-        height: 500,
+        name: 'card',
+        width: 768,
+        height: 1024,
+        position: 'centre',
       },
       {
-        name: 'small',
-        width: 600,
-      },
-      {
-        name: 'medium',
-        width: 900,
-      },
-      {
-        name: 'large',
-        width: 1400,
-      },
-      {
-        name: 'xlarge',
-        width: 1920,
-      },
-      {
-        name: 'og',
-        width: 1200,
-        height: 630,
-        crop: 'center',
+        name: 'tablet',
+        width: 1024,
+        // By specifying `undefined` or leaving a height undefined,
+        // the image will be sized to a certain width,
+        // but it will retain its original aspect ratio
+        // and calculate a height automatically.
+        height: undefined,
+        position: 'centre',
       },
     ],
   },

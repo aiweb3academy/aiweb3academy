@@ -18,10 +18,12 @@
     "dev": "next dev",
     "format": "pnpm format:check --write",
     "format:check": "prettier --cache --check .",
+    "generate:db-schema": "payload generate:db-schema",
+    "generate:graphql-schema": "payload-graphql generate:schema",
     "generate:importmap": "payload generate:importmap",
-    "generate:schema": "payload-graphql generate:schema",
     "generate:types": "payload generate:types",
     "lint": "eslint --ignore-path .gitignore .",
+    "migrate:create": "payload migrate:create",
     "pages:build": "next-on-pages",
     "preview": "wrangler pages dev --ip 0.0.0.0",
     "start": "next start"

@@ -1,6 +1,8 @@
 public/
 pnpm-lock.yaml
 app/(payload)/
+payload/payload-types.ts
+payload/migrations
 
 pages/zh/eliza/api*
 pages/zh/eliza/core/actions.md
