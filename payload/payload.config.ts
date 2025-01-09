@@ -16,9 +16,9 @@ import { fileURLToPath } from 'url'
 import { Page, Post } from '@/payload-types'
 import { Categories } from '@/payload/collections/Categories'
 import { Media } from '@/payload/collections/Media'
+import { Members } from '@/payload/collections/Members'
 import { Pages } from '@/payload/collections/Pages'
 import { Posts } from '@/payload/collections/Posts'
-import { Users } from '@/payload/collections/Users'
 import { defaultLexical } from '@/payload/fields/defaultLexical'
 import { revalidateRedirects } from '@/payload/hooks/revalidateRedirects'
 import { beforeSyncWithSearch } from '@/payload/search/beforeSync'
@@ -40,12 +40,20 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    user: Members.slug,
+    autoLogin:
+      process.env.NEXT_PUBLIC_ENABLE_AUTOLOGIN === 'true'
+        ? {
+            username: 'admin',
+            email: 'admin@aiweb3.academy',
+            password: 'admin',
+          }
+        : false,
     importMap: {
       baseDir: path.resolve(dirname, '..'),
     },
   },
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Members],
   editor: defaultLexical,
   cors: [getServerSideURL()].filter(Boolean),
   secret: process.env.PAYLOAD_SECRET || '',
@@ -56,6 +64,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.POSTGRES_URL || '',
     },
+    generateSchemaOutputFile: path.resolve(dirname, 'schema.sql'),
+    // logger: true,
   }),
   sharp,
   plugins: [
@@ -124,4 +134,8 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  logger: {
+    options: { level: 'error' },
+    destination: process.stdout,
+  },
 })

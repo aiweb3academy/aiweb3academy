@@ -65,41 +65,41 @@
 
 /* should be fixed in Nextra 4 */
 ._max-w-\[90rem\] {
-    @apply container;
+  @apply container;
 }
 
 .nextra-nav-container + ._max-w-\[90rem\] {
-    @apply px-0;
+  @apply px-0;
 }
 
 .nextra-nav-container > nav {
-    @apply gap-6;
+  @apply gap-6;
 }
 
 /* Move nav links to the left */
 .nextra-nav-container nav {
-    @apply justify-start;
+  @apply justify-start;
 
-    > a {
-        @apply first:mr-0 hover:!text-primary;
+  > a {
+    @apply first:mr-0 hover:!text-primary;
+  }
+
+  button[id^='headlessui-menu-button'] {
+    @apply hover:text-primary;
+
+    + div > a {
+      @apply hover:text-primary;
     }
+  }
 
-    button[id^="headlessui-menu-button"] {
-        @apply hover:text-primary;
+  /* Search box */
+  ._not-prose {
+    @apply ml-auto;
 
-        + div > a {
-            @apply hover:text-primary;
-        }
+    + * {
+      @apply max-md:ml-auto;
     }
-
-    /* Search box */
-    ._not-prose {
-        @apply ml-auto;
-
-        + * {
-            @apply max-md:ml-auto;
-        }
-    }
+  }
 }
 
 html {

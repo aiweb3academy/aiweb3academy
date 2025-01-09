@@ -3,7 +3,7 @@ import path from 'path'
 import type { CollectionConfig } from 'payload'
 import { fileURLToPath } from 'url'
 
-import { isAdmin } from '@/payload/access/isAdmin'
+import { isMember } from '@/payload/access/member'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -11,10 +11,10 @@ const dirname = path.dirname(filename)
 export const Media: CollectionConfig = {
   slug: 'media',
   access: {
-    create: isAdmin,
-    delete: isAdmin,
+    create: isMember,
+    delete: isMember,
     read: () => true,
-    update: isAdmin,
+    update: isMember,
   },
   fields: [
     {

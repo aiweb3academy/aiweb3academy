@@ -90,7 +90,7 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
   ]
 
   if (!disableLabel) {
-    linkTypes.map((linkType) => ({
+    linkTypes.map(linkType => ({
       ...linkType,
       admin: {
         ...linkType.admin,
@@ -121,7 +121,7 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
     let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline]
 
     if (appearances) {
-      appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance])
+      appearanceOptionsToUse = appearances.map(appearance => appearanceOptions[appearance])
     }
 
     linkResult.fields.push({

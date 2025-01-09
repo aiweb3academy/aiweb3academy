@@ -15,11 +15,12 @@ import {
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
-import { isAdmin } from '@/payload/access/isAdmin'
+import { isMember } from '@/payload/access/member'
 import { publishedOnly } from '@/payload/access/publishedOnly'
 import { Banner } from '@/payload/blocks/Banner/config'
 import { Code } from '@/payload/blocks/Code/config'
 import { MediaBlock } from '@/payload/blocks/MediaBlock/config'
+import { Members } from '@/payload/collections/Members'
 import { slugField } from '@/payload/fields/slug'
 import { generatePreviewPath } from '@/payload/utilities/generatePreviewPath'
 
@@ -29,10 +30,10 @@ import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
   access: {
-    create: isAdmin,
-    delete: isAdmin,
+    create: isMember,
+    delete: isMember,
     read: publishedOnly,
-    update: isAdmin,
+    update: isMember,
   },
   // This config controls what's populated by default when a post is referenced
   // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
@@ -190,7 +191,7 @@ export const Posts: CollectionConfig<'posts'> = {
         position: 'sidebar',
       },
       hasMany: true,
-      relationTo: 'users',
+      relationTo: 'members',
     },
     // This field is only used to populate the user data via the `populateAuthors` hook
     // This is because the `user` collection has access control locked to protect user privacy

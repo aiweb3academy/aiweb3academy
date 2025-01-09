@@ -6,15 +6,15 @@ import {
   RichText as RichTextWithoutBlocks,
 } from '@payloadcms/richtext-lexical/react'
 
-import { BannerBlock } from '@/payload/blocks/Banner/Component'
-import { CallToActionBlock } from '@/payload/blocks/CallToAction/Component'
-import { CodeBlock, CodeBlockProps } from '@/payload/blocks/Code/Component'
-import { MediaBlock } from '@/payload/blocks/MediaBlock/Component'
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
 } from '@/payload-types'
+import { BannerBlock } from '@/payload/blocks/Banner/Component'
+import { CallToActionBlock } from '@/payload/blocks/CallToAction/Component'
+import { CodeBlock, CodeBlockProps } from '@/payload/blocks/Code/Component'
+import { MediaBlock } from '@/payload/blocks/MediaBlock/Component'
 import { cn } from '@/payload/utilities/cn'
 
 type NodeTypes =

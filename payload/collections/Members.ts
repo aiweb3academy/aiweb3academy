@@ -1,22 +1,27 @@
 import type { CollectionConfig } from 'payload'
 
-import { isAdmin, isAdminFieldLevel } from '@/payload/access/isAdmin'
-import { isAdminOrSelf, isAdminOrSelfFieldLevel } from '@/payload/access/isAdminOrSelf'
+import { isAdmin, isAdminFieldLevel, isAdminOrSelf, isAdminOrSelfFieldLevel, isMember } from '@/payload/access/member'
 
-export const Users: CollectionConfig = {
-  slug: 'users',
+export const Members: CollectionConfig = {
+  slug: 'members',
   access: {
-    admin: isAdmin,
+    admin: isMember,
+    unlock: isAdmin,
     create: isAdmin,
-    delete: isAdminOrSelf,
-    read: () => true,
+    delete: isAdmin,
+    read: isAdminOrSelf,
     update: isAdminOrSelf,
   },
   admin: {
-    defaultColumns: ['name', 'email'],
+    defaultColumns: ['name', 'username', 'email', 'createdAt', 'updatedAt'],
     useAsTitle: 'name',
   },
   auth: {
+    loginWithUsername: {
+      allowEmailLogin: true,
+      requireEmail: true,
+      requireUsername: true,
+    },
     cookies: {
       domain: process.env.COOKIE_DOMAIN,
       sameSite: process.env.NODE_ENV === 'production' && !process.env.DISABLE_SECURE_COOKIE ? 'None' : undefined,
@@ -38,8 +43,8 @@ export const Users: CollectionConfig = {
         read: isAdminOrSelfFieldLevel,
         update: isAdminFieldLevel,
       },
-      defaultValue: ['member'],
-      hasMany: true,
+      defaultValue: 'member',
+      hasMany: false,
       options: ['admin', 'member'],
       required: true,
     },

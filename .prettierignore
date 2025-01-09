@@ -1,2 +1,7 @@
 public/
 pnpm-lock.yaml
+app/(payload)/
+
+pages/zh/eliza/api*
+pages/zh/eliza/core/actions.md
+pages/zh/eliza/core/characterfile.mdx

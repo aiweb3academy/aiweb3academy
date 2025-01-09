@@ -1,6 +1,6 @@
 # Eliza 介绍
 
-![](/img/eliza_banner.jpg)
+![](/images/eliza/eliza_banner.jpg)
 
 _Eliza 正在为 [@DegenSpartanAI](https://x.com/degenspartanai) 和 [@MarcAIndreessen](https://x.com/pmairca) 提供支持_
 

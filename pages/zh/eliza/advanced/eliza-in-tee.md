@@ -1,6 +1,6 @@
 # 🫖 Eliza 在 TEE 中
 
-![](/img/eliza_in_tee.jpg)
+![](/images/eliza/eliza_in_tee.jpg)
 
 ## 概述
 

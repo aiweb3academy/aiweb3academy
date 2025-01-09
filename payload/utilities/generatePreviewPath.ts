@@ -1,4 +1,4 @@
-import { PayloadRequest, CollectionSlug } from 'payload'
+import { CollectionSlug, PayloadRequest } from 'payload'
 
 const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
   posts: '/posts',
@@ -26,8 +26,7 @@ export const generatePreviewPath = ({ collection, slug, req }: Props) => {
     encodedParams.append(key, value)
   })
 
-  const isProduction =
-    process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL_PROJECT_PRODUCTION_URL)
+  const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL_PROJECT_PRODUCTION_URL)
   const protocol = isProduction ? 'https:' : req.protocol
 
   const url = `${protocol}//${req.host}/next/preview?${encodedParams.toString()}`

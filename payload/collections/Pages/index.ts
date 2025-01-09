@@ -7,7 +7,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import type { CollectionConfig } from 'payload'
 
-import { isAdmin } from '@/payload/access/isAdmin'
+import { isMember } from '@/payload/access/member'
 import { publishedOnly } from '@/payload/access/publishedOnly'
 import { Archive } from '@/payload/blocks/ArchiveBlock/config'
 import { CallToAction } from '@/payload/blocks/CallToAction/config'
@@ -24,11 +24,11 @@ import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
   access: {
-    create: isAdmin,
-    delete: isAdmin,
+    create: isMember,
+    delete: isMember,
     read: publishedOnly,
-    readVersions: isAdmin,
-    update: isAdmin,
+    readVersions: isMember,
+    update: isMember,
   },
   // This config controls what's populated by default when a page is referenced
   // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property

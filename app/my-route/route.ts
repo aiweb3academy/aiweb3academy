@@ -7,7 +7,7 @@ export const GET = async () => {
   })
 
   const data = await payload.find({
-    collection: 'users',
+    collection: 'members',
   })
 
   return Response.json(data)

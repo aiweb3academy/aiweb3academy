@@ -117,6 +117,7 @@ const boredomProvider: Provider = {
 ```
 
 特点：
+
 - 参与度跟踪
 - 对话流程管理
 - 自然脱离

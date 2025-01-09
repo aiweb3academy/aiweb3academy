@@ -18,13 +18,13 @@
     "dev": "next dev",
     "format": "pnpm format:check --write",
     "format:check": "prettier --cache --check .",
+    "generate:importmap": "payload generate:importmap",
+    "generate:schema": "payload-graphql generate:schema",
+    "generate:types": "payload generate:types",
     "lint": "eslint --ignore-path .gitignore .",
     "pages:build": "next-on-pages",
     "preview": "wrangler pages dev --ip 0.0.0.0",
-    "start": "next start",
-    "generate:types": "payload generate:types",
-    "generate:schema": "payload-graphql generate:schema",
-    "generate:importmap": "payload generate:importmap"
+    "start": "next start"
   },
   "dependencies": {
     "@next/third-parties": "^15.1.2",

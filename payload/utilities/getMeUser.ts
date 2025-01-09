@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-import type { User } from '../payload-types'
+import type { Member } from '../payload-types'
 import { getClientSideURL } from './getURL'
 
 export const getMeUser = async (args?: {
@@ -9,7 +9,7 @@ export const getMeUser = async (args?: {
   validUserRedirect?: string
 }): Promise<{
   token: string
-  user: User
+  user: Member
 }> => {
   const { nullUserRedirect, validUserRedirect } = args || {}
   const cookieStore = await cookies()
@@ -24,7 +24,7 @@ export const getMeUser = async (args?: {
   const {
     user,
   }: {
-    user: User
+    user: Member
   } = await meUserReq.json()
 
   if (validUserRedirect && meUserReq.ok && user) {
