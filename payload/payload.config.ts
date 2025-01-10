@@ -22,7 +22,7 @@ export default buildConfig({
   admin: {
     user: Members.slug,
     autoLogin:
-      process.env.NEXT_PUBLIC_ENABLE_AUTOLOGIN === 'true'
+      process.env.PAYLOAD_ENABLE_AUTOLOGIN === 'true'
         ? {
             username: 'admin',
             email: 'admin@aiweb3.academy',

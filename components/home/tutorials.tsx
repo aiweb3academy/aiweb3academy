@@ -42,7 +42,7 @@ export function Tutorials() {
     <div className="flex flex-wrap justify-center gap-8">
       {tutorials.map(({ logo, title, description, link, bg }) => (
         <div key={title} className="w-full md:w-96">
-          <Link href={`/${router.locale}/${link}`}>
+          <Link href={`${router.locale ? '/' + router.locale : ''}/${link}`}>
             <Card
               className={`mx-8 md:h-96 ${colorVariants[bg]} border-0 transition ease-in-out duration-300 hover:-translate-y-6`}
             >

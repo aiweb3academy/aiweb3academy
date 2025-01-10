@@ -16,8 +16,8 @@ export default withPayload(
   withNextra({
     images: {
       loader: 'custom',
-      imageSizes: process.env.NODE_ENV === 'production' ? [16, 32, 48, 64, 96, 128, 256, 384] : [],
-      deviceSizes: process.env.NODE_ENV === 'production' ? [640, 750, 828, 1080, 1200, 1920, 2048, 3840] : [],
+      imageSizes: !process.env.DEPLOYMENT_PREVIEW ? [16, 32, 48, 64, 96, 128, 256, 384] : [],
+      deviceSizes: !process.env.DEPLOYMENT_PREVIEW ? [640, 750, 828, 1080, 1200, 1920, 2048, 3840] : [],
     },
     transpilePackages: ['next-image-export-optimizer'],
     env: {
@@ -34,12 +34,5 @@ export default withPayload(
       locales: ['zh'],
       defaultLocale: 'zh',
     },
-    redirects: () => [
-      {
-        source: '/',
-        destination: '/zh/',
-        permanent: true,
-      },
-    ],
   }),
 )
