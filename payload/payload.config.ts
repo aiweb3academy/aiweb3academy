@@ -4,6 +4,7 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
+import { i18n } from '@/i18n.mjs'
 import { Categories } from '@/payload/collections/Categories'
 import { Media } from '@/payload/collections/Media'
 import { Members } from '@/payload/collections/Members'
@@ -45,7 +46,7 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
     generateSchemaOutputFile: path.resolve(dirname, 'schema.ts'),
-    logger: true,
+    logger: !!process.env.DEPLOYMENT_PREVIEW,
     migrationDir: path.resolve(dirname, 'migrations'),
     prodMigrations: migrations,
   }),
@@ -55,6 +56,7 @@ export default buildConfig({
       fileSize: 5000000, // 5MB, written in bytes
     },
   },
+  localization: i18n,
   plugins,
   logger: {
     options: { level: 'error' },

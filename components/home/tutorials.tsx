@@ -12,7 +12,7 @@ const tutorials: {
   bg: string
 }[] = [
   {
-    logo: 'elizaos.avif',
+    logo: 'elizaos.jpg',
     title: 'Eliza 智能体框架',
     description:
       'Eliza 是一个功能强大的多智能体模拟框架，旨在创建、部署和管理自主人工智能智能体。它基于 TypeScript 构建，为开发智能体提供了一个灵活且可扩展的平台。这些智能体能够在多个平台上进行交互，同时保持一致的个性和知识。',

@@ -6,5 +6,6 @@ out
 .idea
 
 .env
+.env.development
 .env.production
 .env.local

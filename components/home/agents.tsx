@@ -5,9 +5,9 @@ export function Agents() {
   return (
     <Marquee autoFill>
       {[
-        ['ai16z.avif', 'ai16z'],
+        ['ai16z.jgp', 'ai16z'],
         ['virtuals-protocol.svg', 'Virtuals Protocol'],
-        ['elizaos.avif', 'ElizaOS'],
+        ['elizaos.jpg', 'ElizaOS'],
         ['ELIZA.webp', 'Eliza'],
         ['G.A.M.E.png', 'G.A.M.E'],
         ['luna.png', 'Luna'],

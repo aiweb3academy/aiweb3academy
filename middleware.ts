@@ -12,6 +12,9 @@ const locales = JSON.parse(process.env.NEXTRA_LOCALES!) as string[]
 
 const defaultLocale = process.env.NEXTRA_DEFAULT_LOCALE!
 
+// Refer to:
+// - https://github.com/lingui/js-lingui/blob/main/examples/nextjs-swc/src/middleware.ts
+// - https://github.com/shuding/nextra/blob/main/packages/nextra/src/server/locales.ts
 export function localesMiddleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
   const { pathname } = request.nextUrl
@@ -57,6 +60,6 @@ export const config = {
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      * - images, fonts
      */
-    '/((?!api|admin|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|ttf)$).*)',
+    '/((?!api|admin|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|WEBP|avif|AVIF|ico|ttf)$).*)',
   ],
 }

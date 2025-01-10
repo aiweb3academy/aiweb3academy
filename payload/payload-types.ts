@@ -44,7 +44,7 @@ export interface Config {
   };
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'zh' | 'en';
   user: Member & {
     collection: 'members';
   };
