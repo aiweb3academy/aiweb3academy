@@ -1,6 +1,14 @@
 import type { CollectionConfig } from 'payload'
 
 import { isAdmin, isAdminFieldLevel, isAdminOrSelf, isAdminOrSelfFieldLevel, isMember } from '@/payload/access/member'
+import {
+  generateForgotPasswordEmailHTML,
+  generateForgotPasswordEmailSubject,
+} from '@/payload/email/generateForgotPasswordEmail'
+import {
+  generateVerificationEmailHTML,
+  generateVerificationEmailSubject,
+} from '@/payload/email/generateVerificationEmail'
 
 export const Members: CollectionConfig = {
   slug: 'members',
@@ -10,7 +18,7 @@ export const Members: CollectionConfig = {
     create: isAdmin,
     delete: isAdmin,
     read: isAdminOrSelf,
-    update: isAdminOrSelf,
+    update: isAdmin, // non-admin member's changing password operation should go to forgot-password flow
   },
   admin: {
     defaultColumns: ['name', 'username', 'email', 'createdAt', 'updatedAt'],
@@ -28,6 +36,14 @@ export const Members: CollectionConfig = {
       secure: process.env.NODE_ENV === 'production' && !process.env.DISABLE_SECURE_COOKIE ? true : undefined,
     },
     tokenExpiration: 28800, // 8 hours
+    verify: {
+      generateEmailHTML: generateVerificationEmailHTML,
+      generateEmailSubject: generateVerificationEmailSubject,
+    },
+    forgotPassword: {
+      generateEmailHTML: generateForgotPasswordEmailHTML,
+      generateEmailSubject: generateForgotPasswordEmailSubject,
+    },
   },
   fields: [
     {

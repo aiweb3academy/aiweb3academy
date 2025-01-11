@@ -1,4 +1,5 @@
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import { resendAdapter } from '@payloadcms/email-resend'
 import path from 'path'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
@@ -46,7 +47,7 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
     generateSchemaOutputFile: path.resolve(dirname, 'schema.ts'),
-    logger: !!process.env.DEPLOYMENT_PREVIEW,
+    logger: process.env.DEPLOYMENT_PREVIEW === 'true',
     migrationDir: path.resolve(dirname, 'migrations'),
     prodMigrations: migrations,
   }),
@@ -56,6 +57,11 @@ export default buildConfig({
       fileSize: 5000000, // 5MB, written in bytes
     },
   },
+  email: resendAdapter({
+    defaultFromAddress: 'noreply@notifications.aiweb3.academy',
+    defaultFromName: 'AI Academy @Web3',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
   localization: i18n,
   plugins,
   logger: {
