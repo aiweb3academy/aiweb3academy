@@ -6,8 +6,7 @@ _Eliza 正在为 [@DegenSpartanAI](https://x.com/degenspartanai) 和 [@MarcAIndr
 
 ## 什么是 Eliza？
 
-Eliza 是一个功能强大的多智能体模拟框架，旨在创建、部署和管理自主 AI 智能体。它基于 TypeScript
-构建，为开发能够在多个平台上进行交互，同时保持一致个性和知识的智能智能体，提供了一个灵活且可扩展的平台。
+Eliza 是一个功能强大的多智能体模拟框架，旨在创建、部署和管理自主 AI 智能体。它基于 TypeScript 构建，为开发能够在多个平台上进行交互，同时保持一致个性和知识的智能体，提供了一个灵活且可扩展的平台。
 
 ## 关键特性
 
@@ -15,7 +14,7 @@ Eliza 是一个功能强大的多智能体模拟框架，旨在创建、部署�
 
 - **多智能体架构**：可同时部署和管理多个独特的 AI 人格。
 - **角色系统**：使用 [characterfile](https://github.com/elizaOS/characterfile) 框架创建多样化的智能体。
-- **内存管理**：先进的检索增强生成（RAG，Retrieval Augmented Generation）系统，用于长期记忆和上下文感知。
+- **记忆管理**：先进的检索增强生成（RAG，Retrieval Augmented Generation）系统，用于长期记忆和上下文感知。
 - **平台集成**：与 Discord、Twitter 及其他平台实现无缝连接。
 
 ### 通信与媒体
@@ -38,7 +37,7 @@ Eliza 是一个功能强大的多智能体模拟框架，旨在创建、部署�
 - **灵活的模型支持**：
   - 使用开源模型进行本地推理。
   - 通过 OpenAI 进行基于云的推理。
-  - 默认配置为 Nous Hermes Llama 3.1B。
+  - 默认使用 Nous Hermes Llama 3.1B。
   - 与 Claude 集成以处理复杂查询。
 - **技术基础**：
   - 100% 采用 TypeScript 实现。

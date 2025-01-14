@@ -69,13 +69,14 @@ cp .env.example .env
 编辑 `.env` 并添加你的值：
 
 ```bash
-# 建议的快速入门环境变量
+# 建议使用的快速入门环境变量
 DISCORD_APPLICATION_ID=  # Discord 应用 ID
 DISCORD_API_TOKEN=       # Discord API 令牌
 HEURIST_API_KEY=         # 用于 LLM 和图像生成的 Heurist API 密钥
 OPENAI_API_KEY=          # OpenAI API 密钥
 GROK_API_KEY=            # Grok API 密钥
 ELEVENLABS_XI_API_KEY=   # 来自 elevenlabs 的 API 密钥（用于语音）
+LIVEPEER_GATEWAY_URL=    # Livepeer gateway URL
 ```
 
 ## 选择你的模型
@@ -88,6 +89,7 @@ Eliza 支持多种 AI 模型：
 - **Llama**：设置 `XAI_MODEL=meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo`。
 - **Grok**：设置 `XAI_MODEL=grok-beta`。
 - **OpenAI**：设置 `XAI_MODEL=gpt-4o-mini` 或 `gpt-4o`。
+- **Livepeer**: 将 `LIVEPEER_IMAGE_MODEL` 设为你所选择的 Livepeer 图像生成模型。你可以在 [此处](https://livepeer-eliza.com/) 查看可用的模型。
 
 你可以在角色 JSON 文件中设置要使用的模型。
 
@@ -113,7 +115,7 @@ Eliza 支持多种 AI 模型：
 
 查看 `characters/trump.character.json` 或 `characters/tate.character.json`，以此作为模板来复制和自定义智能体的个性与行为。
 
-此外，你可以阅读 `packages/core/src/defaultCharacter.ts`。
+此外，你可以阅读 `packages/core/src/defaultCharacter.ts`（这份建议适用于版本 0.0.10。重构后这份文件将位于 `packages/core/src/defaultCharacter.ts`）。
 
 📝 [角色文件文档](../core/characterfile.md)
 
@@ -133,9 +135,7 @@ pnpm start --characters="characters/trump.character.json,characters/tate.charact
 
 3. **与智能体交互**
 
-现在你可以开始与智能体对话了！
-
-打开一个新的终端窗口：
+现在你可以开始与智能体对话了！打开一个新的终端窗口：
 
 ```bash
 pnpm start:client
@@ -166,20 +166,9 @@ pnpm start:client
 TWITTER_USERNAME=  # 账号用户名
 TWITTER_PASSWORD=  # 账号密码
 TWITTER_EMAIL=     # 账号邮箱
-TWITTER_COOKIES=   # 账号 cookies（auth_token 和 CT0）
 ```
 
 **重要提示**：登录 [Twitter 开发者门户](https://developer.twitter.com)，并为你的账号启用 “Automated” 标签，以避免被标记为不真实账号。
-
-#### TWITTER_COOKIES 示例
-
-`TWITTER_COOKIES` 变量应该是一个包含必要 cookies 的 JSON 字符串。你可以在浏览器的开发者工具中找到这些 cookies。以下是一个示例格式：
-
-```bash
-TWITTER_COOKIES='[{"key":"auth_token","value":"你的 token","domain":".twitter.com"},
-  {"key":"ct0","value":"你的 ct0","domain":".twitter.com"},
-  {"key":"guest_id","value":"你的 guest_id","domain":".twitter.com"}]'
-```
 
 ### Telegram 机器人
 
@@ -224,6 +213,12 @@ pnpm start --characters="characters/trump.character.json,characters/tate.charact
    - 使用 `node -v` 检查版本。
    - 考虑使用 [nvm](https://github.com/nvm-sh/nvm) 来管理 Node 版本。
 
+   注意：pnpm 可能会捆绑一个不同版本的 Node.js，从而忽略 nvm。如果遇到这种情况，你可以使用以下命令强制指定正确的版本：
+
+   ```bash
+   pnpm env use --global 23.3.0
+   ```
+
 2. **Sharp 安装问题**
    如果你遇到与 Sharp 相关的错误：
 
@@ -233,8 +228,8 @@ pnpm install --include=optional sharp
 
 3. **CUDA 设置问题**
 
-   - 验证 CUDA 工具包的安装。
-   - 检查 GPU 与工具包的兼容性。
+   - 验证 CUDA Toolkit 的安装。
+   - 检查 GPU 与 CUDA Toolkit 的兼容性。
    - 确保设置了正确的环境变量。
 
 4. **Exit Status 1**
